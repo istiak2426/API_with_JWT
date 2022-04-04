@@ -94,7 +94,7 @@ const Login = () => {
   );
 
   const redirectUser = () => {
-    if (redirect) return <Redirect to="/posts/private" />;
+    if (redirect) return <Redirect to="/" />;
     if (isAuthenticated()) return <Redirect to="/" />;
   };
   return (<>

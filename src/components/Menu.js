@@ -1,5 +1,5 @@
 import { Link, withRouter } from "react-router-dom";
-import { signOut, isAuthenticated } from "../utils/auth";
+import { signOut, isAuthenticated, userInfo } from "../utils/auth";
 
 const isActive = (history, path) => {
   if (history.location.pathname === path) {
@@ -12,7 +12,7 @@ const isActive = (history, path) => {
 const Menu = ({ history }) => {
 
 
-  
+ 
   
   return (
     <nav className="navbar navbar-dark bg-dark">
@@ -63,8 +63,15 @@ const Menu = ({ history }) => {
               </Link>
             </li>
 
-
-
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                style={isActive(history, `/${userInfo().role}/adminposts`)}
+                to={`/${userInfo().role}/adminposts`}
+              >admin route
+              </Link>
+            </li>
+   
 
             <li className="nav-item">
               <span

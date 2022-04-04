@@ -1,10 +1,12 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import PrivateRoute from "../route/PrivateRoute";
+import AdminRoute from "../route/AdminRoute";
 import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Private from "./Private";
 import Public from "./Public";
+import Admin from "./Admin";
 
 const Main = () => {
   return (
@@ -18,6 +20,11 @@ const Main = () => {
         <PrivateRoute exact path="/posts/private">
           <Private />
         </PrivateRoute>
+
+        <AdminRoute exact path="/admin/adminposts">
+
+        <Admin/>
+        </AdminRoute>
 
         <Redirect to="/" />
       </Switch>

@@ -1,8 +1,18 @@
 import axios from 'axios';
-import { API } from '../utils/config';
+
+
+
+
+
 
 export const register = (user) => {
-    return axios.post(`${API}/auth/signup`, user, {
+
+
+    const devEnv = process.env.NODE_ENV !== "production";
+const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
+
+
+    return axios.post(`${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/auth/signup`, user, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -10,7 +20,13 @@ export const register = (user) => {
 };
 
 export const login = (user) => {
-    return axios.post(`${API}/auth/login`, user, {
+
+    const devEnv = process.env.NODE_ENV !== "production";
+    const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
+   
+
+
+    return axios.post(`${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/auth/login`, user, {
         headers: {
             'Content-Type': 'application/json'
         }
